@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Models\Post;
 use App\Models\Barang;
-
+use App\Models\Post;
+use App\Models\Karyawan;
+use App\Models\Siswa;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,14 +108,37 @@ Route::get('/myname/{name?}', function ($a = "abdu") {
 });
 
 // Menampilkan data dari database
-Route::get('/testmodel', function () {
-    $data = Post::all();
-    return $data;
+Route::get('/post', function () {
+    $post = Post::all();
+    return view('tampil_post', compact('post'));
+
 });
 
 // Menampilkan data dari database
-Route::get('/testmodel2', function () {
-    $data = Barang::all();
-    return $data;
+Route::get('/barang', function () {
+    $barang = Barang::all();
+    return view('tampil_barang', compact('barang'));
+
 });
+
+Route::get('/testmodel3', function () {
+    $karyawan = Karyawan::all();
+    
+    // $karyawan = new Karyawan;
+    // $karyawan->nama = "Ser Sandor Clegane";
+    // $karyawan->alamat = "Kings Landing";
+    // $karyawan->usia = "46";
+    // $karyawan->save();
+    
+    return $karyawan;
+});
+
+Route::get('/siswa', function () {
+    $siswa = Siswa::all();
+    return view('tampil_siswa', compact('siswa'));
+
+
+});
+
+//tambah data
 
