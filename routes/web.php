@@ -2,8 +2,16 @@
 
 use App\Models\Barang;
 use App\Models\Post;
+
 use App\Models\Karyawan;
 use App\Models\Siswa;
+
+use App\Models\Pengguna;
+use App\Models\Telepon;
+
+use App\Models\Merek;
+use App\Models\Produk;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -126,7 +134,7 @@ Route::get('/testmodel3', function () {
     
     // $karyawan = new Karyawan;
     // $karyawan->nama = "Ser Sandor Clegane";
-    // $karyawan->alamat = "Kings Landing";
+    // $karyawan->alamat = "Harrenhall";
     // $karyawan->usia = "46";
     // $karyawan->save();
     
@@ -137,8 +145,36 @@ Route::get('/siswa', function () {
     $siswa = Siswa::all();
     return view('tampil_siswa', compact('siswa'));
 
+});
+
+// PENGGUNA & TELEPON
+Route::get('/pengguna', function () {
+    $pengguna = Pengguna::all();
+    return view('tampil_pengguna', compact('pengguna'));
+
+});
+Route::get('/telepon', function () {
+    $telepon = Telepon::all();
+    return view('tampil_telepon', compact('telepon'));
 
 });
 
-//tambah data
+// MEREK & PRODUK
+Route::get('/merek', function () {
+    $merek = Merek::all();
+    return view('tampil_merek', compact('merek'));
+
+});
+Route::get('/produk', function () {
+    $produk = Produk::all();
+    return view('tampil_produk', compact('produk'));
+
+});
+
+
+
+
+
+
+
 
