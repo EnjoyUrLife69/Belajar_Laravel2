@@ -15,14 +15,16 @@
         <tr>
             <th>Id</th>
             <th>Nama</th>
-            <th>Jumlah</th>
+            <th>harga</th>
+            <th>stok</th>
         </tr>
         @php $no = 1; @endphp
         @foreach ($barang as $data)
             <tr>
                 <td>{{ $data->id }}</td>
-                <td>{{ $data->nama }}</td>
-                <td>{{ $data->jumlah }}</td>
+                <td>{{ $data->nama_barang }}</td>
+                <td>{{ $data->harga }}</td>
+                <td>{{ $data->stok }}</td>
             </tr>
         @endforeach
     </table>

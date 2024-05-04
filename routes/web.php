@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Barang;
 use App\Models\Post;
 
 use App\Models\Karyawan;
@@ -11,6 +10,10 @@ use App\Models\Telepon;
 
 use App\Models\Merek;
 use App\Models\Produk;
+
+use App\Models\Pembeli;
+use App\Models\Barang;
+use App\Models\Transaksi;
 
 use Illuminate\Support\Facades\Route;
 
@@ -170,6 +173,23 @@ Route::get('/produk', function () {
     return view('tampil_produk', compact('produk'));
 
 });
+
+Route::get('/transaksi', function () {
+    $transaksi = Transaksi::all();
+    return view('tampil_transaksi', compact('transaksi'));
+});
+Route::get('/barang', function () {
+    $barang = Barang::all();
+    return view('tampil_barang', compact('barang'));
+
+});
+Route::get('/pembeli', function () {
+    $pembeli = Pembeli::all();
+    return view('tampil_pembeli', compact('pembeli'));
+
+});
+
+
 
 
 

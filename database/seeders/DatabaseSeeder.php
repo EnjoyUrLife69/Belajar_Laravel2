@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
         $this->call(TeleponsTableSeeder::class);
         $this->call(MereksTableSeeder::class);
         $this->call(ProduksTableSeeder::class);
+        $this->call(PembelisTableSeeder::class);
+        $this->call(TransaksisTableSeeder::class);
+
 
 
 
