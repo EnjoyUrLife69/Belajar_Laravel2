@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_barang');
             $table->unsignedBigInteger('id_pembeli');
             $table->string('jumlah');
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->timestamps();
 
             $table->foreign('id_barang')->references('id')->on('barangs')->onDelete('cascade');

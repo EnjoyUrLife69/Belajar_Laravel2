@@ -15,6 +15,17 @@ use App\Models\Pembeli;
 use App\Models\Barang;
 use App\Models\Transaksi;
 
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\MerekController;
+
+
+
+
+
+
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -84,10 +95,10 @@ Route::get('/fruit', function () {
     return view('fruit_page', compact('fruit'));
 });
 
-// route parameters ditandai dengan {}
-Route::get('/product/{name}', function ($name) {
-    return "product : $name";
-});
+// // route parameters ditandai dengan {}
+// Route::get('/product/{name}', function ($name) {
+//     return "product : $name";
+// });
 
 // tugasss
 Route::get('/bmi/{name}/{bb}/{tb}', function ($name, $bb, $tb) {
@@ -118,12 +129,12 @@ Route::get('/myname/{name?}', function ($a = "abdu") {
     return "my name is $a";
 });
 
-// Menampilkan data dari database
-Route::get('/post', function () {
-    $post = Post::all();
-    return view('tampil_post', compact('post'));
+// // Menampilkan data dari database
+// Route::get('/post', function () {
+//     $post = Post::all();
+//     return view('tampil_post', compact('post'));
 
-});
+// });
 
 // Menampilkan data dari database
 Route::get('/barang', function () {
@@ -162,18 +173,19 @@ Route::get('/telepon', function () {
 
 });
 
-// MEREK & PRODUK
-Route::get('/merek', function () {
-    $merek = Merek::all();
-    return view('tampil_merek', compact('merek'));
+// // MEREK & PRODUK
+// Route::get('/merek', function () {
+//     $merek = Merek::all();
+//     return view('tampil_merek', compact('merek'));
 
-});
+// });
 Route::get('/produk', function () {
     $produk = Produk::all();
     return view('tampil_produk', compact('produk'));
 
 });
 
+// MANY TO MANY
 Route::get('/transaksi', function () {
     $transaksi = Transaksi::all();
     return view('tampil_transaksi', compact('transaksi'));
@@ -189,6 +201,22 @@ Route::get('/pembeli', function () {
 
 });
 
+//Controller Produk
+Route::get('/product', [ProdukController::class, 'menampilkan'] );
+Route::get('/product/{id}', [ProdukController::class, 'show']);
+
+//Controller Post
+Route::get('/post', [PostController::class, 'menampilkan']);
+Route::get('/post/{id}', [PostController::class, 'show']);
+
+//Controller Post
+Route::get('/merek', [MerekController::class, 'menampilkan']);
+Route::get('/merek/{id}', [MerekController::class, 'show']);
+
+//Controller Brand
+use App\Http\Controllers\BrandController;
+
+Route::resource('brand', BrandController::class);
 
 
 
@@ -198,3 +226,9 @@ Route::get('/pembeli', function () {
 
 
 
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
