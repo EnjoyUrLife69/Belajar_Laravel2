@@ -15,7 +15,7 @@ class ProdukController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function menampilkan()
     {
         $produk = Produk::all();

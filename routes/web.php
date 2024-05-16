@@ -26,6 +26,9 @@ use App\Http\Controllers\MerekController;
 
 
 
+
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -202,8 +205,8 @@ Route::get('/pembeli', function () {
 });
 
 //Controller Produk
-Route::get('/product', [ProdukController::class, 'menampilkan'] );
-Route::get('/product/{id}', [ProdukController::class, 'show']);
+Route::get('/product2', [ProdukController::class, 'menampilkan'] );
+Route::get('/product2/{id}', [ProdukController::class, 'show']);
 
 //Controller Post
 Route::get('/post', [PostController::class, 'menampilkan']);
@@ -215,8 +218,17 @@ Route::get('/merek/{id}', [MerekController::class, 'show']);
 
 //Controller Brand
 use App\Http\Controllers\BrandController;
-
 Route::resource('brand', BrandController::class);
+
+//Controller Product
+use App\Http\Controllers\ProductController;
+Route::resource('product', ProductController::class);
+
+
+
+
+
+
 
 
 

@@ -6,7 +6,18 @@ use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
-{
+{   
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -40,7 +51,9 @@ class BrandController extends Controller
         $brand = new Brand;
         $brand->name_brand = $request->name_brand;
         $brand->save();
-        return redirect()->route('brand.index');
+        return redirect()->route('brand.index')
+            ->with('success', 'data berhasil di tambahkan');
+
     }
 
     /**
@@ -64,7 +77,9 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::FindOrFail($id);
+        return view('brands.edit', compact('brand'));
+
     }
 
     /**
@@ -76,7 +91,12 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brand = Brand::FindOrFail($id);
+        $brand->name_brand = $request->name_brand;
+        $brand->save();
+        return redirect()->route('brand.index')
+            ->with('success', 'data berhasil di ubah');
+
     }
 
     /**
@@ -87,6 +107,10 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = Brand::FindOrFail($id);
+        $brand->delete();
+        return redirect()->route('brand.index')
+            ->with('success', 'data berhasil dihapus');
+
     }
 }

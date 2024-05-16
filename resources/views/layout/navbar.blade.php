@@ -12,7 +12,7 @@
                         <a class="nav-link" href="/post">POST <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/product">PRODUCT</a>
+                        <a class="nav-link" href="/product2">PRODUCT</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/merek">MEREK</a>
